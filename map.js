@@ -112,8 +112,8 @@ function packProtests(){
 
     // if the radii intersect, push them apart
 	var pack = function(elemA, elemB) {
-		var a = {x:elemA.attr('cx'),y:elemA.attr('cy'),r:elemA.attr('r')}
-		var b = {x:elemB.attr('cx'),y:elemB.attr('cy'),r:elemB.attr('r')}
+		var a = {x:elemA.data('cx'),y:elemA.data('cy'),r:elemA.data('r')}
+		var b = {x:elemB.data('cx'),y:elemB.data('cy'),r:elemB.data('r')}
 		
 		if(distance(a.x,a.y,b.x,b.y)==0){
 			var angle = Math.random()*Math.PI*2;
@@ -141,9 +141,9 @@ function packProtests(){
 			if(distAfter<minRadius){
 				//debugger;
 			}
-			elemB.attr('cx',b.x);
-			elemB.attr('cy',b.y);
-					
+			elemB.data('cx',b.x);
+			elemB.data('cy',b.y);
+			elemB.animate({'cx':b.x,'cy':b.y},250,'easeOut');	
     }
 	};
   
@@ -174,6 +174,7 @@ function packProtests(){
 		return (d < (a.r + b.r));
 	};
 
+	
 
 	for (var i = 0; i < elements.length; i++) {
       for (var j = 0; j < elements.length; j++) {
