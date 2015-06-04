@@ -1,0 +1,22 @@
+body {
+  padding-top: 100px;
+}
+.title{
+	height:25px;
+}
+.summary{
+	height:40px;
+}
+#timeSlider {
+    width: 100%;
+}
+.manifestacion .tags, .manifestacion .things{
+	height:70px;
+}
+.label{
+	margin-left:5px;
+	display:inline-block;
+}
+#tagsexplorer .label{
+	cursor: pointer;
+}

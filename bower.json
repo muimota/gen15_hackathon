@@ -1,0 +1,22 @@
+{
+  "name": "mapas.muimota.net",
+  "version": "0.0.0",
+  "description": "mapas del descontentp",
+  "main": "index.html",
+  "authors": [
+    "Martin Nadal"
+  ],
+  "license": "MIT",
+  "homepage": "mapas.muimota.net",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "raphael": "~2.1.4",
+    "seiyria-bootstrap-slider": "~4.8.1"
+  }
+}
