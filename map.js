@@ -83,8 +83,8 @@ function layerHandler(event){
 function sliderHandler(){
 	
 	var index  = $('#timeslider').slider('getValue');
-	var indexRadius = 10;
-	var startIndex	= Math.max(index-indexRadius,0);
+	var indexRadius = 1;
+	var startIndex	= Math.max(index,0);
 	var endIndex	= Math.min(index+indexRadius,am.timeline.length);
 	
 	var placesDict = {};
