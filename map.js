@@ -71,7 +71,7 @@ function layerHandler(event){
 			opacityValue = 0;
 		}else{
 			element.data('active',true);
-			opacityValue = 1;
+			opacityValue = .6;
 		}
 		element.animate({opacity:opacityValue},500,'linear')
 	}
@@ -128,7 +128,7 @@ function sliderHandler(){
    
 	for(var i=0;i<elementsToRemove.length;i++){
 		var element = elementsToRemove[i];
-		element.animate({opacity:0.0},500,'linear',
+		element.animate({opacity:0.0},200,'linear',
 			function(){
 				this.remove();
 			});
@@ -155,10 +155,16 @@ function sliderHandler(){
 function drawProtest(article){
 
 	var coords,element;
-	var radius = 5;
+	
 	var color = undefined;
 	var tagIds = article['tags'];
 	var categoryName = undefined;
+
+	var emptyRadius  = 5;
+	var minRadius = 8;
+	var maxRadius  =20;
+
+	var radius = emptyRadius;
 
 	for(var i=0;i<tagIds.length;i++){
 		var tagId = tagIds[i];
@@ -184,7 +190,7 @@ function drawProtest(article){
 			index = validThings.indexOf(am.things[thingId]);
 			if(index > -1 && index<thingIndex){
 				thingIndex = index;
-				radius = Math.max(5,Math.min(50,mapValue(things[thingId],0,10000,3,50)));
+				radius = Math.max(minRadius,Math.min(maxRadius,mapValue(things[thingId],0,10000,minRadius,maxRadius)));
 			}
 		}
 	}
