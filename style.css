@@ -152,10 +152,8 @@ a:hover{
     display: none;
     position: absolute;
     background-color: white;
-    
     z-index: 4;
     width:690px;
-    height:400px;
     top:25px;
     left:105px;
     float:left;
@@ -169,11 +167,12 @@ a:hover{
     width:650px;
     height:375px;
 }
-#aboutCard{
+.hito{
+    padding:20px;
     top:25px;
-    left:615px;
+    left:25px;
     width:220px;
-    height:360px;
+    min-height:360px;
 }
 /* BALLOON */
 .balloon{

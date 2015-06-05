@@ -2,6 +2,8 @@ var am;
 var paper;
 var activeCategories = [];
 
+var currentDate;
+
 var categoryTags = 
 		{
 			'Empleo':[1640,11,90,1853,510,1996,1291,255,1923,149,164,347,2211,268,2219,870],
@@ -82,6 +84,24 @@ function layerHandler(event){
 	packProtests();
 }
 
+function displayHitos(sdate,edate){
+	var hitos = $('.hito');
+
+	$(hitos).hide();
+	for(var i=0;i<hitos.length;i++){
+		var hito = $(hitos[i]);
+		var startDate	= hito.attr('startDate');
+		var endDate		= hito.attr('endDate');
+
+		if((sdate>startDate && sdate<endDate) || (edate>startDate && edate<endDate) 
+			|| (sdate<startDate && edate>endDate)){
+			hito.show();
+			break;
+		}
+
+	}
+}
+
 function sliderHandler(){
 	
 	var index  = $('#timeslider').slider('getValue');
@@ -103,6 +123,8 @@ function sliderHandler(){
 
 
 	var endIndex = startIndex;
+	displayHitos(am.timeline[index],endDate);
+
 	while(endIndex<=am.timeline.length-1 && am.timeline[endIndex]<endDate){
 		endIndex++;
 	}
