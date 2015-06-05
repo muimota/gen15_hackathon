@@ -76,14 +76,13 @@ function packProtests(){
 
 	activeElements.sort(compareElem);
 	
-	for(var k=0;k<2;k++){
-		for (var i = 0; i < activeElements.length; i++) {
-	      for (var j = 0; j < activeElements.length; j++) {
-	      	if(i==j){
-	        	continue;	
-	        }
-	        pack(activeElements[i], activeElements[j]);
-	      }
-	  	}
+	for (var i = 0; i < activeElements.length; i++) {
+      for (var j = 0; j < activeElements.length; j++) {
+      	if(i==j){
+        	continue;	
+        }
+        pack(activeElements[i], activeElements[j]);
+      }
   	}
+  
 }

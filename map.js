@@ -41,7 +41,9 @@ function init(data){
 function initUI(){
 	$('#timeslider').slider({'min':0,'max':am.timeline.length-1,'step':1});
 	$('#timeslider').on('change',sliderHandler);
+	$('#timeslider').on('slideStop',packProtests());
 	
+
 	$('.dataset').addClass('active');
 	$('.dataset').click(layerHandler);
 
@@ -83,9 +85,27 @@ function layerHandler(event){
 function sliderHandler(){
 	
 	var index  = $('#timeslider').slider('getValue');
-	var indexRadius = 10;
-	var startIndex	= Math.max(index-indexRadius,0);
-	var endIndex	= Math.min(index+indexRadius,am.timeline.length);
+	var startIndex	= index;
+
+	function pad(num, size) {
+	    var s = num+"";
+	    while (s.length < size) s = "0" + s;
+	    return s;
+	}
+
+	var monthOffset = 6;
+	var startYear   = parseInt(am.timeline[index].substring(0,4));
+	var startMonth  = parseInt(am.timeline[index].substring(4,6));
+	var startDay	= parseInt(am.timeline[index].substring(6,8));    
+
+	var endDate 	= ""+(startYear+Math.floor((startMonth+monthOffset)/12))+
+						 pad(((startMonth+monthOffset)%12),2)+pad(startDay,2);
+
+
+	var endIndex = startIndex;
+	while(endIndex<=am.timeline.length-1 && am.timeline[endIndex]<endDate){
+		endIndex++;
+	}
 	
 	var placesDict = {};
 	var placeNames = [];
@@ -208,6 +228,8 @@ function drawProtest(article){
 			}
 			element = paper.circle(coords[0],coords[1],radius).attr({'fill': color,'opacity':0.0,'stroke-width': 0});
 			element.hover(circleHandler,circleHandler);
+			element.click(circleHandler);
+			
 			element.data('category',categoryName);
 			element.data('id',article['id']);
 			element.data('r',radius);
@@ -246,11 +268,18 @@ function circleHandler(event){
     toolTip.html(innerHtml)
 
     toolTip.stop(true);
-    if(event.type == 'mouseout'){
-    	toolTip.fadeOut();
-	}else{
-		toolTip.fadeIn();
-		
+    
+    if(event.type=='click'){
+    	window.open(article['url']);
+    }else{
+	
+	    if(event.type == 'mouseout'){
+	    	toolTip.fadeOut();
+	    	 this[0].style.cursor = "";
+		}else{
+			toolTip.fadeIn();
+			this[0].style.cursor = "pointer";
+		}
 	}
 
 	//debugger;
