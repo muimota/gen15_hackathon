@@ -2,6 +2,7 @@ function packProtests(){
 
     // if the radii intersect, push them apart
 	var pack = function(elemA, elemB) {
+
 		var a = {x:elemA.data('cx'),y:elemA.data('cy'),r:elemA.data('r')}
 		var b = {x:elemB.data('cx'),y:elemB.data('cy'),r:elemB.data('r')}
 		
@@ -27,10 +28,6 @@ function packProtests(){
 			var distAfter = distance(a.x,a.y,b.x,b.y);
 			var minRadius = a.r + b.r;
 			
-			console.log("before:"+dist+" after:"+distAfter+" min:"+minRadius);
-			if(distAfter<minRadius){
-				//debugger;
-			}
 			elemB.data('cx',b.x);
 			elemB.data('cy',b.y);
 			elemB.animate({'cx':b.x,'cy':b.y},250,'easeOut');	
@@ -64,15 +61,29 @@ function packProtests(){
 		return (d < (a.r + b.r));
 	};
 
+	var compareElem = function(elemA,elemB){
+		return elemA.data('r')-elemB.data('r');
+	}
+
+	var activeElements = [];
 	
-
 	for (var i = 0; i < elements.length; i++) {
-      for (var j = 0; j < elements.length; j++) {
-      	if(i==j){
-        	continue;	
-        }
-        pack(elements[i], elements[j]);
-      }
-  	}
+		var element  = elements[i];
+		if(element.data('active')){
+			activeElements.push(element);
+		}
+	}
 
+	activeElements.sort(compareElem);
+	
+	for(var k=0;k<2;k++){
+		for (var i = 0; i < activeElements.length; i++) {
+	      for (var j = 0; j < activeElements.length; j++) {
+	      	if(i==j){
+	        	continue;	
+	        }
+	        pack(activeElements[i], activeElements[j]);
+	      }
+	  	}
+  	}
 }

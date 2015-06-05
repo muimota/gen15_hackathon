@@ -1,0 +1,43 @@
+body {
+  padding-top: 100px;
+  margin: 0px;
+
+ }
+#map{
+	margin:0 auto;
+	transform:scale(1.0);
+}
+#controls{
+	position:absolute;
+	z-index:1;
+	top:100px;
+	left:200px;
+
+}
+.down{
+	margin:50px 0px;
+}
+.container{
+	width:1024px;
+	
+	padding: 0px;
+}
+.title{
+	height:25px;
+}
+.summary{
+	height:40px;
+}
+#timeSlider {
+    width: 100%;
+}
+.manifestacion .tags, .manifestacion .things{
+	height:70px;
+}
+.label{
+	margin-left:5px;
+	display:inline-block;
+}
+#tagsexplorer .label{
+	cursor: pointer;
+}

@@ -1,23 +1,24 @@
 var am;
 var paper;
+var activeCategories = [];
 
 var categoryTags = 
 		{
 			'Empleo':[1640,11,90,1853,510,1996,1291,255,1923,149,164,347,2211,268,2219,870],
 			'Salud':[ 2051,911,1749,125,1803,2151,12,1167,1616],
-		 	'Educación':[ 234,1513,551,547,1363,346,2254,2087,1960,1501,571,1892,2408,1907],
+		 	'Educacion':[ 234,1513,551,547,1363,346,2254,2087,1960,1501,571,1892,2408,1907],
 		 	'Vivienda':[ 392,943,333,1689,391,991,1297],
-		 	'Seguridad y Justicia':[ 207,2299,1138,158,759,2099,147,915,2467,2302,120,517,1117],
-		 	'Medio ambiente':[ 1754,966,213,138,209,359,1126]
+		 	'Seguridad':[ 207,2299,1138,158,759,2099,147,915,2467,2302,120,517,1117],
+		 	'Ambiente':[ 1754,966,213,138,209,359,1126]
 		};
 var categoryColors = 
 	{
 		'Empleo':Raphael.color('#F26B28'),
 		'Salud':Raphael.color('#DB044E'),
-	 	'Educación':Raphael.color('#CB8A14'),
+	 	'Educacion':Raphael.color('#CB8A14'),
 	 	'Vivienda':Raphael.color('#5663B2'),
-	 	'Seguridad y Justicia':Raphael.color('#3AB2B1'),
-	 	'Medio ambiente':Raphael.color('#9CB637')
+	 	'Seguridad':Raphael.color('#3AB2B1'),
+	 	'Ambiente':Raphael.color('#9CB637')
 	};
 var defaultColor = Raphael.color('#666666');
 
@@ -31,12 +32,52 @@ function init(data){
 	am = new ArticlesModel(data);
 	//pm = pm.getTags(['Corrupción']);
 
-	$('#timeslider').slider({'min':0,'max':am.timeline.length-1,'step':1});
-	$('#timeslider').on('change',sliderHandler);
 	//$('#map').click(function(){$('#tool').hide()})
 	paper = Raphael('map',992,684)
 	paper.image('images/map.png',0,0,992,684);
+	initUI();
+}
+
+function initUI(){
+	$('#timeslider').slider({'min':0,'max':am.timeline.length-1,'step':1});
+	$('#timeslider').on('change',sliderHandler);
+	
+	$('.dataset').addClass('active');
+	$('.dataset').click(layerHandler);
+
+	//populate ActiveCategories
+	$('.dataset').each(function() {
+	    if($(this).hasClass('active')){
+	    	activeCategories.push($(this).attr('id').substring(3));
+	    }
+	});
 	sliderHandler();
+}
+
+function layerHandler(event){
+	$(event.currentTarget).toggleClass('active');
+	activeCategories = [];
+	$('.dataset').each(function() {
+	    if($(this).hasClass('active')){
+	    	activeCategories.push($(this).attr('id').substring(3));
+	    }
+	});
+
+	for(var i=0;i<elements.length;i++){
+		var element = elements[i];
+		var opacityValue;
+		if($.inArray(element.data('category'),activeCategories)== -1){
+			element.data('active',false);
+			opacityValue = 0;
+		}else{
+			element.data('active',true);
+			opacityValue = 1;
+		}
+		element.animate({opacity:opacityValue},500,'linear')
+	}
+	
+	console.log(activeCategories);
+	packProtests();
 }
 
 function sliderHandler(){
@@ -95,7 +136,7 @@ function sliderHandler(){
 	}
 
 	//añadimos los que faltan
-	console.log(articles.length);
+	//console.log(articles.length);
 	for(var i=0;i<articles.length;i++){
 		var article = articles[i];
 		drawProtest(article);
@@ -117,12 +158,14 @@ function drawProtest(article){
 	var radius = 5;
 	var color = undefined;
 	var tagIds = article['tags'];
+	var categoryName = undefined;
 
 	for(var i=0;i<tagIds.length;i++){
 		var tagId = tagIds[i];
 		for(var category in categoryTags){
 			if(categoryTags[category].indexOf(tagId) != -1){
 				color = categoryColors[category];
+				categoryName = category;
 				break;
 			}
 		}
@@ -157,14 +200,19 @@ function drawProtest(article){
 			if(coords==undefined){
 				continue;
 			}
-			element = paper.circle(coords[0],coords[1],radius).attr({'fill': color,'opacity':0.7,'stroke-width': 0});
+			element = paper.circle(coords[0],coords[1],radius).attr({'fill': color,'opacity':0.0,'stroke-width': 0});
 			element.hover(circleHandler,circleHandler);
-			element.attr({opacity:0.0});
-			element.animate({opacity:0.3},500);
+			element.data('category',categoryName);
 			element.data('id',article['id']);
 			element.data('r',radius);
 			element.data('cx',coords[0]);
 			element.data('cy',coords[1]);
+			element.data('active',false);
+			if($.inArray(categoryName,activeCategories)!=-1){
+				element.animate({opacity:0.6},200);
+				element.data('active',true);
+			}
+			
 			elements.push(element);
 		}
 		for(var placeName in placesDict){
@@ -182,16 +230,16 @@ function circleHandler(event){
     var articleId = this.data('id');
     var article = am.indexedArticles[articleId];
     var innerHtml = '<h8>'+ArticlesModel.formatDate(article['date'])+'</h8><h6><a href="'+article['url']+'" target = "_blank">'+article.title+'</a></h6>';
-    position.top  = Math.max(0,BBox.y-85);
-    position.left = -125+(BBox.x+BBox.x2)/2.0;
+    position.top  = Math.max(0,BBox.y-88);
+    position.left = -145+(BBox.x+BBox.x2)/2.0;
 
-    console.log(event);
     //toolTip.text(this.paper.mapManager.datamodel.getTooltip(this.node.id));
     toolTip.hide();
     toolTip.css("top",position.top);
     toolTip.css("left",position.left);
     toolTip.html(innerHtml)
 
+    toolTip.stop(true);
     if(event.type == 'mouseout'){
     	toolTip.fadeOut();
 	}else{

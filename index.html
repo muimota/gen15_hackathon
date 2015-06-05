@@ -1,0 +1,206 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>EU Exports: employment and income (1995-2011)</title>
+        <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Bootstrap -->
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+        
+        
+    </head>
+
+    <body>
+        <!-- <div style="position:absolute;top:40px;left:40px;z-index:20;pointer-events: none;">
+            <img src="draft.png"/>
+        </div> -->
+        <div class="container"> 
+            <div class="upperrow">
+                <div style="float:left"><a href="https://ec.europa.eu/jrc/en/research-topic/economic-environmental-and-social-effects-of-globalisation">&#8592; EU Export Research website</a></div>
+                <div style="float:right"><a id='btnIntructions' href="#">instructions</a> | <a id='btnAbout'href="#">about</a></div>
+            </div>
+           
+            <h2 class="mapsection">EFFECTS OF EU EXPORTS ON EMPLOYMENT AND INCOME</h2>
+            <h6 class="mapsection">CHOOSE A MAP MODE:</h6>
+            <div id="datasets">
+                <div id="btnSalud" class="dataset">Salud</div>
+                <div id="btnEmpleo" class="dataset">Empleo</div>
+                <div id="btnEducacion" class="dataset">Educación</div>
+                <div id="btnAmbiente" class="dataset">M.Ambiente</div>
+                <div id="btnSeguridad" class="dataset">Seguridad</div>
+                <div id="btnVivienda" class="dataset">Vivienda</div>
+            </div>
+             <hr/> 
+            <h6 class="mapsection">CHOOSE A COUNTRY:</h6>
+            <div id="countries-flags">
+                <input id="timeslider" data-slider-id='timeSlider' type="text"/>
+            </div>
+
+            <div class="row empty-row"></div>
+            <div id="map">
+                <div id="tool">
+                    <div id="EUBalloon" class="balloon shadow">
+                        Click on the EU map to see more EU data!
+                    </div>
+                    <div id="CountryBalloon" class="balloon shadow">
+                        Click on the country to see more data!
+                    </div>
+                    <div class="content"></div>
+                </div>
+                <div id="graphTool">
+                    <div class="percent"></div>
+                    <div class="sector"></div>
+                </div>
+                
+                <div id="instructionsCard" class="infoCard shadow">
+                    <img class="closebtn" src="closebtn.png">
+                    <h2>Instructions</h2>
+                    <strong>1st: Choose a map mode</strong>
+                    <p>Choose a map mode to find out the amount of jobs or income supported by EU exports —in the EU (blue) or inthe Rest of the World (orange). Countries’ colour intensity depend on the amount of jobs/income (the more, the darker)</p>
+                    <strong>2nd Choose a country</strong>
+                    <p>By default, EU flag is selected. Mouse-over a country to know the amount of jobs/income that were supported/generated in that country by the total exports of the EU27 (Croatia not included) to the rest of the world.</p>
+                    <p>Choose a flag to find out the impact of that country’s exports. Mouse-over as before.</p>
+                    <p>The word “Income” can be associated to “Value Added” as in the EU-JRC report EU exports to the World: Effects on Employment and Income.</p>
+                    <strong>Country fiches</strong>
+                    <p>By clicking once on a given EU country, a summary fiche of the country will pop up. Here you can compare 1995 and 2011 data.</p>
+                </div>
+                 <div id="aboutCard" class="infoCard shadow">
+                    <img class="closebtn" src="closebtn.png">
+                    <h3>About</h3>
+                    <p>EU Member States export goods and services all around the World. These exports generate jobs and income not only in the exporting countries but also elsewhere. For instance, Germany exports automobiles to Japan, but many of the cars' parts are produced in other countries, supporting and generating jobs and value added in those economies. Discover it by using this map!</p>
+                    <p><a href="https://ec.europa.eu/jrc/en/research-topic/economic-environmental-and-social-effects-of-globalisation">More Info</a></p>
+                </div>
+                <div id="wrapperInfo" class="infoCard shadow">
+                    <img class="closebtn" src="closebtn.png">
+                    <div class="countryInfo">
+                        <h3 id="countryName">countryName</h3>
+                         <img id="flag" />
+                         <ul class="unstyled">
+                            <li class="factname">POPULATION:</li>
+                            <li><span id="countryPopulation"></span> inhabitants</li>
+                            <li class="factname">PEOPLE EMPLOYED:</li>
+                            <li><span id="countryEmployed"></span> persons</li>
+                            <li class="factname">GDP:</li>
+                            <li><span id="countryGdp"></span> million EUR</li>
+                            <li class="factname">EXTRA EU EXPORTS:</li>
+                            <li><span id="countryExports"></span> million EUR</li>
+                         </ul>  
+                    </div>
+                    <div class="graphInfo">
+                        <div class="graphRow">
+                            <div id="A2" class="graphCol">
+                                <div class="year1995">
+                                    <div class="circle">
+                                        <div class="data">13M</div>
+                                        <div class="info">jobs</div>
+                                    </div>
+                                    <div class="year"></div>
+                                </div>
+                                <div class="year2011">
+                                    <div class="circle">
+                                        <div class="data">13M</div>
+                                        <div class="info">jobs</div>
+                                    </div>
+                                    <div class="year"></div>
+                                </div>
+                                <p class="title"></p>
+                            </div>
+                            <div id="A8" class="graphCol">
+                                <div class="year1995">
+                                    <div class="circle">
+                                        <div class="data">13M</div>
+                                        <div class="info">jobs</div>
+                                    </div>
+                                    <div class="year"></div>
+                                </div>
+                                <div class="year2011">
+                                    <div class="circle">
+                                        <div class="data">13M</div>
+                                        <div class="info">jobs</div>
+                                    </div>
+                                    <div class="year"></div>
+                                </div>
+                                 <p class="title"></p>
+                            </div>
+                            <div id="A10" class="graphCol year1995">
+                                <div class="graph"></div>
+                                <div class="year">1995</div>
+                                <p class="title"></p>
+                            </div>
+                            <div id="A12" class="graphCol year1995">
+                                <div class="graph"></div>
+                                <div class="year">1995</div>
+                                <p class="title"></p>
+                            </div>
+                        </div>
+                        <div class="graphRow">
+                            <div id="B2" class="graphCol">
+                                <div class="year1995">
+                                    <div class="circle">
+                                        <div class="data">13M</div>
+                                        <div class="info">Income</div>
+                                    </div>
+                                    <div class="year"></div>
+                                </div>
+                                <div class="year2011">
+                                    <div class="circle">
+                                        <div class="data">13M</div>
+                                        <div class="info">Income</div>
+                                    </div>
+                                    <div class="year"></div>
+                                </div>
+                                <p class="title"></p>
+                            </div>
+                            <div id="B8" class="graphCol">
+                                <div class="year1995">
+                                    <div class="circle">
+                                        <div class="data">13M</div>
+                                        <div class="info">Income</div>
+                                    </div>
+                                    <div class="year"></div>
+                                </div>
+                                <div class="year2011">
+                                    <div class="circle">
+                                        <div class="data">13M</div>
+                                        <div class="info">Income</div>
+                                    </div>
+                                    <div class="year"></div>
+                                </div>
+                                <p class="title"></p>
+                            </div>
+                            <div id="B10" class="graphCol year1995">
+                                <div class="graph"></div>
+                                <div class="year">1995</div>
+                                <p class="title"></p>
+                            </div>
+                            <div id="B12" class="graphCol year1995">
+                                <div class="graph"></div>
+                                <div class="year">1995</div>
+                                <p class="title"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+     <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js" rel="stylesheet"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/raphael/raphael-min.js"></script>
+    <script src="articlesmodel.js"></script>
+    <script src="packer.js"></script>
+    <script src="places.js"></script>
+    <script src="things.js"></script>
+    <script src="map.js"></script>
+    </body>
+</html>

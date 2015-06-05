@@ -19,7 +19,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="style.css" rel="stylesheet">
+    <link href="style2.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -55,10 +55,32 @@
       </div>
     </nav>
 
-     <div class="container">
-        <h2 id="date"></h2>
-        <h6 id="places"></h6>
-        <input id="timeslider" data-slider-id='timeSlider' type="text"/>
+     <div class="container down">
+        <div id="controls">
+          <h2 id="date"></h2>
+          <h6 id="places"></h6>
+          <input id="timeslider" data-slider-id='timeSlider' type="text"/>
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked>Empleo
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked>Salud
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked>Seguridad
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked>Educación
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked>Vivienda
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked>Medio Ambiente
+            </label>
+          </div>
+        </div>
         <div id="map">
             <div id="tool">Pepito Grillo</div>
         </div>
@@ -75,6 +97,7 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/raphael/raphael-min.js"></script>
     <script src="articlesmodel.js"></script>
+    <script src="packer.js"></script>
     <script src="places.js"></script>
     <script src="things.js"></script>
     <script src="map.js"></script>

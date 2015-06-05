@@ -1,22 +1,465 @@
-body {
-  padding-top: 100px;
+
+body{
+    transform-origin: 0 0;
+    font-family:'ECSquare',Verdana;
+    color:#535d5f
 }
-.title{
-	height:25px;
+
+/*http://stackoverflow.com/questions/10045859/how-to-use-font-weight-with-font-face-fonts*/
+
+@font-face{ 
+    font-family: 'ECSquare';
+    src: url('fonts/ECSquareSansPro-Bold.eot');
+    src: url('fonts/ECSquareSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ECSquareSansPro-Bold.woff') format('woff'),
+         url('fonts/ECSquareSansPro-Bold.ttf') format('truetype'),
+         url('fonts/ECSquareSansPro-Bold.svg#webfont') format('svg');
+    font-weight: bold;
+    font-style:  normal;
 }
-.summary{
-	height:40px;
+
+@font-face{ 
+    font-family: 'ECSquare';
+    src: url('fonts/ECSquareSansPro-Regular.eot');
+    src: url('fonts/ECSquareSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ECSquareSansPro-Regular.woff') format('woff'),
+         url('fonts/ECSquareSansPro-Regular.ttf') format('truetype'),
+         url('fonts/ECSquareSansPro-Regular.svg#webfont') format('svg');
+    font-weight: normal;
+    font-style:  normal;
 }
-#timeSlider {
-    width: 100%;
+
+
+
+h2.mapsection ,h6.mapsection{
+    font-family:'ECSquare',Verdana;
+    text-align: center;
+    color:#535d5f
 }
-.manifestacion .tags, .manifestacion .things{
-	height:70px;
+
+p.subtitle{
+    width:85%;
+    font-size: 1em;
+    font-family:'ECSquare',Verdana;
+    text-align: center;
+    margin:2em auto;
+    color:#535d5f
 }
-.label{
-	margin-left:5px;
-	display:inline-block;
+
+.shadow {
+   box-shadow: 0 0 20px rgba(0,0,0,.3);
 }
-#tagsexplorer .label{
-	cursor: pointer;
+
+.container{
+    /*padding:0;
+    margin:0;*/
+    width:900px;
 }
+
+.upperrow{
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+a,a:hover,a:visited,a:active{
+    text-decoration: none;
+    color:#535d5f;
+}
+
+a:hover{
+    color:black;
+}
+
+#map{
+    margin:0 auto;
+    position: relative;
+    background-color: white;
+    width:870px;
+    height:600px;
+    overflow: hidden;
+}
+
+
+#tool {
+    font-family:'ECSquare',Verdana;
+    pointer-events: none;
+    position: absolute;
+    width: 290px;
+    height: 80px;
+    background: #e7e7e7;/* The Fallback */
+    background-color: rgba(231,231,231,.9);
+    display: none;
+    z-index: 4;
+    padding: 10px 0 10px 10px;
+    font-size: 12px;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(0,0,0,.3);
+    color: #535d5f;
+    font-weight: 400;
+    left: 663px;
+    top: 211px;
+}
+/*arrow*/
+#tool:after {
+    content:'';
+    position: absolute;
+    pointer-events: none;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    border-top: solid 5px #e6e6e6;;
+    border-left: solid 5px transparent;
+    border-right: solid 5px transparent;
+}
+#tool *{
+    pointer-events: none;
+}
+
+#tool h4{
+    margin:0;
+    text-transform: uppercase;
+}
+
+#preload{
+    display: none;
+}
+
+#flag{ 
+    width:75;
+    height:50px;
+    border-color: #EEE;
+    border-style: solid;
+    border-width: thin;
+}
+
+.row-150{
+    min-height: 150px;
+}
+
+.row{
+    margin-left: 0;
+}
+
+.closebtn{
+     position:absolute;
+     top:10px;
+     right:10px
+}
+
+.infoCard{
+    display: none;
+    position: absolute;
+    background-color: white;
+    
+    z-index: 4;
+    width:690px;
+    height:400px;
+    top:25px;
+    left:105px;
+    float:left;
+}
+.infoCard a{
+    font-weight: bold;
+}
+#instructionsCard,#aboutCard{
+    top:15px;
+    padding:20px;
+    width:650px;
+    height:375px;
+}
+#aboutCard{
+    top:25px;
+    left:615px;
+    width:220px;
+    height:360px;
+}
+/* BALLOON */
+.balloon{
+    position:absolute;
+    width:90px;
+    height:40px;
+    padding: 10px;
+    z-index: 1;
+    top:-45px;
+    left:240px;
+    font-family:'ECSquare',Verdana;
+    font-size:12px;
+    border-radius: 10px;
+    
+    text-align: center;
+    line-height: 1em;
+}
+#EUBalloon{
+    background-color:#eda055;
+    background-color: rgba(237,160,85,0.8);
+    display:none;
+}
+#CountryBalloon{
+    background-color:#66bec9;
+    background-color: rgba(102,190,201,0.8);
+}
+/* GRAPH */
+.europa #A2 {
+    display: none;
+}
+.europa #B2 {
+    display: none;
+}
+.europa .circle,.europa .graph{
+    transform:scale(1.4);
+    -ms-transform: scale(1.4); /* IE 9 */
+    -webkit-transform: scale(1.4); /* Safari */
+}
+.europa .graphCol{
+    margin-left: 30px
+}
+
+.europa .graphCol .year{
+    margin-top: 18px;
+}
+.circle .info{
+    color:white;
+    margin-top: -5px;
+}
+
+.year1995 .circle{
+    background-color: #b5c0c7;
+}
+
+.year1995 .data,.year1995 .year{
+    color: #758e99;
+}
+
+.year2011 .circle,.year2009 .circle{
+    background-color: #66bec9;
+}
+
+.year2011 .data,.year2011 .year,.year2009 .data,.year2009 .year{
+    color: #2a779a;
+}
+
+.graphInfo{
+    width:410px;
+    height:400px;
+    padding: 40px 0px 0px 0px;
+    float:right;
+}
+
+.graphRow{
+    width:410px;
+    height:160px;
+    
+}
+
+.graphCol{
+    height:120px;
+    width:90px;
+    margin: 20px 5px;
+    float: left;
+    display:inline-block;
+}
+
+.graph{
+    width:60px;
+    height:60px;
+    margin:0px 15px;
+}
+
+.graphCol .circle{
+    width:60px;
+    height:60px;
+    border-radius: 60px;
+    margin: 0 auto 0 auto;
+    overflow: hidden;
+}
+
+.circle div{
+    width:100%;
+    text-align: center; 
+    cursor:pointer;
+}
+
+.circle .data{
+    margin-top:15px;
+    font-size:15px;
+    font-weight: bold;
+}
+
+.circle .info{
+    font-size:11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.graphCol>.title{
+    text-align: center;
+    font-size: 11px;
+    line-height: 1em; 
+    margin:5px 0px;
+}
+.graphCol .year{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1em; 
+}
+
+
+#countryName{
+    font-size: 30px;
+    font-weight: bold;
+    color:#205977;
+    line-height: 25px;
+    text-transform: uppercase;
+}
+.factname{
+    font-weight: bold;
+    color:#205977;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: -6px;
+}
+
+/*Country INFO*/
+.countryInfo {
+    font-family:'ECSquare',Verdana;
+    padding: 32px 0px 0px 40px;
+    width: 240px;
+    height:400px;
+    float:left;
+}
+.countryInfo ul{
+    padding-top: 40px;
+}
+/* DATASETS  */
+#datasets{
+    height:38px;
+    padding-left: 10px;
+}
+
+div.dataset{
+    font-family:'ECSquare',Verdana;
+    font-weight: lighter;
+    color:white;
+    width:135px;
+    margin:4px;
+    border-radius: 5px;
+    float:left;
+    padding: 5px;
+    line-height: 1em;
+    text-align: center;
+    cursor:pointer;
+    opacity: 0.3;
+}
+div.dataset.active{
+    opacity:1.0;
+}
+#btnEmpleo{
+    background-color: #F26B28;
+}
+#btnSalud{
+    background-color: #DB044E;
+}
+#btnEducacion{
+    background-color: #CB8A14;
+}
+#btnVivienda{
+    background-color: #5663B2;
+}
+#btnSeguridad{
+    background-color: #3AB2B1;
+}
+#btnAmbiente{
+    background-color: #9CB637;
+}
+
+/*Slider*/
+#timeSlider{
+    margin-top: 5px;
+    margin-left: 5px;
+    width:840px;
+
+}
+#timeSlider .slider-handle{
+    background-image:linear-gradient(to bottom,#B0ABA1 0,#918D84 100%);
+}
+#timeSlider .tooltip{
+    display: none;
+}
+
+#EUEmployment.active,#EUEmployment:hover,#EUValue.active,#EUValue:hover{
+    color:white;
+    background-color: #3fa4c7;
+}
+#EUEmployment , #EUValue{
+    color:#3fa4c7;
+    background-color: #b8e4ed;
+}
+#NonEUEmployment.active,#NonEUEmployment:hover,#NonEUValue.active,#NonEUValue:hover{
+    color:white;
+    background-color: #e98d47;
+}
+#NonEUValue,#NonEUEmployment{
+    color:#e68c4e;
+    background-color: #f6d3ac;
+}
+/*align with vertical line */
+#EUValue {
+    margin-right: 17px;
+}
+#NonEUEmployment{
+    margin-left : 15px;
+}
+
+div.dataset-sep {
+   height:100%;
+   border-left:1px dashed #d3c6b0;
+   float:left;
+}
+
+hr {
+  border:none;
+  border-top:1px dashed #d3c6b0;
+  color:#fff;
+  background-color:#fff;
+  height:2px;
+  margin:20px 0px 8px 0px;
+}
+/*flags*/
+#countries-flags{
+
+    height:30px;
+    background-color: #e8e2d7;
+    border-radius: 5px;
+    padding: 0px 10px;
+}
+
+.country-flag{
+    float:left;
+    width:23px;
+    height:22px;
+    padding:4px 4px;   
+}
+.country-flag:hover{
+    background-color: #888;
+}
+.country-flag-active{
+    background-color: #555;
+}
+.country-flag>img{
+    height: 18px;
+    width:  23px;
+}
+
+div.flag-sep {
+   height:20px;
+   margin:5px 3px 0px 3px;
+   border-left:3px solid #d3c6b0;
+   float:left;
+}
+
+/*empty row http://stackoverflow.com/questions/10085723/twitter-bootstrap-add-top-space-between-rows*/
+.empty-row { margin-top: 40px; }
