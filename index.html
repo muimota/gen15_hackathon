@@ -21,12 +21,14 @@
         </div> -->
         <div class="container"> 
             <div class="upperrow">
-                <div style="float:left"><a href="#">&#8592; página del concurso</a></div>
-                <div style="float:right"><a id='btnIntructions' href="#">instrucciones</a> | <a id='btnAbout'href="#">visualización de Chema</a></div>
+                <!-- <div style="float:left"><a href="#">&#8592; página del concurso</a></div> -->
+                <div style="float:right">
+                    <a id='btnAbout'href="chema.html">tiempos del descontento &#8594;</a>
+                </div>
             </div>
            
             <h2 class="mapsection">MAPAS DEL DESCONTENTO</h2>
-            <h6 class="mapsection">EPÍGRAFE:</h6>
+            <p><srong>Mapas del descontento</strong> es una visualización de todas las protestas sociales desde 1976 hasta la fecha sucedidas en España. El usuario puede navegar en el tiempo con la barra de tiempo situada encima del mapa y activar o desactivar categorías de estas protestas apretando en cada epígrafe.</p>
             <div id="datasets">
                 <div id="btnSalud" class="dataset">Salud</div>
                 <div id="btnEmpleo" class="dataset">Empleo</div>
@@ -41,32 +43,42 @@
                 <input id="timeslider" data-slider-id='timeSlider' type="text"/>
             </div>
 
-            <div class="row empty-row"></div>
+          
             <div id="map">
                 <div id="tool">
                     <div class="content"></div>
                 </div>
-                
-                <div id="instructionsCard" class="infoCard shadow">
-                    <img class="closebtn" src="closebtn.png">
-                    <h2>Instructions</h2>
-                    <strong>1st: Choose a map mode</strong>
-                    <p>Choose a map mode to find out the amount of jobs or income supported by EU exports —in the EU (blue) or inthe Rest of the World (orange). Countries’ colour intensity depend on the amount of jobs/income (the more, the darker)</p>
-                    <strong>2nd Choose a country</strong>
-                    <p>By default, EU flag is selected. Mouse-over a country to know the amount of jobs/income that were supported/generated in that country by the total exports of the EU27 (Croatia not included) to the rest of the world.</p>
-                    <p>Choose a flag to find out the impact of that country’s exports. Mouse-over as before.</p>
-                    <p>The word “Income” can be associated to “Value Added” as in the EU-JRC report EU exports to the World: Effects on Employment and Income.</p>
-                    <strong>Country fiches</strong>
-                    <p>By clicking once on a given EU country, a summary fiche of the country will pop up. Here you can compare 1995 and 2011 data.</p>
+                <div class="hito infoCard shadow" startDate="19760000" endDate="19770000">
+                    <h4>1976: Sucesos de Montejurra y Vitoria, huelga general</h4>
+                    <p>Los sucesos de Montejurra tuvieron lugar el 9 de mayo durante el
+viacrucis anual calista. Sectores de ultraderecha con ayuda de
+mercenarios neofascistas italianos y argentinos asesinaron a a Ricardo
+García Pellejero y Aniano Jiménez Santos e hirieron a muchos más.</p>
+                    <p>La matanza de Vitoria responde al 3 de marzo cuando durante la jornada
+de huelga la Policía Armada lanzó gases lacrimógenos para desalojar a
+los trabajadores que estaban reunidos en asamblea en la iglesia de San
+Francisco de Asís y asesinaron a 5 personas e hirieron de bala a 150.</p>
+                    <p>La Huelga general en España del 12 de noviembre se realizó contra el
+gobierno de Adolfo Suárez y sus medidas de ajuste laboral y por la
+amnistía y las libertades democráticas.</p>
                 </div>
-                 <div id="aboutCard" class="infoCard shadow">
-                    <img class="closebtn" src="closebtn.png">
-                    <h3>About</h3>
-                    <p>EU Member States export goods and services all around the World. These exports generate jobs and income not only in the exporting countries but also elsewhere. For instance, Germany exports automobiles to Japan, but many of the cars' parts are produced in other countries, supporting and generating jobs and value added in those economies. Discover it by using this map!</p>
-                    <p><a href="https://ec.europa.eu/jrc/en/research-topic/economic-environmental-and-social-effects-of-globalisation">More Info</a></p>
+                <div class="hito infoCard shadow" startDate="19770000" endDate="19780000">
+                    <h4>1977: Movimiento pro Amnistía. Matanza de Atocha</h4>
+                    <p>El 30 de julio se decretó una amnistía que supuso la salida de 287
+presos y que no contempló los delitos encuadrados dentro de la
+denominación de terrorismo. De los 400 presos encarcelados por delitos
+de raíz política, unos 250 estaban condenados por terrorismo.
+</p>
+                    <p>En Madrid el 22 de enero el joven Arturo Ruiz fue asesinado por los
+Guerrilleros de Cristo Rey cuando participaba en una manifestación pro
+amnistía y dos días después un comando de ultraderecha asesino a balazos
+a cinco abogados laboralistas y dejó heridos a otros cuatro. Al entierro
+asistieron más de cien mil personas y se convirtió en una multitudinaria
+manifestación que dio lugar a huelgas y muestras de solidaridad por todo
+el país.</p>
+                  
                 </div>
-                
-                <div class="hito infoCard shadow" startDate="19780000" endDate="19780000">
+                <div class="hito infoCard shadow" startDate="19780000" endDate="19790000">
                     <h4>1978: Referendum, Sanfermines</h4>
                     <p>La Constitución española fue ratificada por referéndum popular el 6 de
                       diciembre de 1978 y promulgada el 27 de diciembre del mismo año,
@@ -86,8 +98,277 @@
                     <p>En el caso de España el proceso de reconversión industrial significaría el desmantelamiento de la gran parte de la industria pesada que se había ido construyendo desde la autarquía de los primeros años del franquismo en torno al INI</p>
                     <p>No se realizó inmediatamente por no provocar mayor conflictividad social en los primeros años de la transición.</p>
                 </div>
-            </div>
+                <div class="hito infoCard shadow" startDate="19820000" endDate="19830000">
+                    <h4>1982: Mundial de fútbol</h4>
+                    <p>La XII Copa Mundial de Fútbol tuvo lugar en España, entre el 13 de junio
+y el 11 de julio de ese año, en muchas ciudades. Se crearon estadios de
+fútbol o se construyeron infraestructuras de comunicaciones como el
+popularmente llamado Pirulí de Madrid, Torrespaña de RTVE.
+</p>
+                    <p>Tuvo varias irregularidades y amaños que se supieron con posterioridad
+en el seno de la FIFA. Ganó Italia.</p>
+                 
+                </div>
+                <div class="hito infoCard shadow" startDate="19850000" endDate="19860000">
+                    <h4>1985: Despenalización del aborto</h4>
+<p>La primera ley del aborto de la democracia lo despenalizó en tres
+supuestos:</p>
+                    <ul>
+                        <li>En cualquier momento si existe "un grave peligro para la vida o la
+salud física o psíquica de la embarazada".</li>
+                        <li>En las 12 primeras semanas en caso de violación</li>
+                        <li>Dentro de las 22 semanas si el feto va a nacer con "graves taras
+físicas o psíquicas".</li>
+                    </ul>
+                    <p>Aún así, esta primera ley contemplaba de seis meses a un año de cárcel
+(o multa de 6 a 24 meses) para las que abortaran fuera de los tres
+supuestos</p>
+                    
+                </div>
+                <div class="hito infoCard shadow" startDate="19860000" endDate="19870000">
+                    <h4>1986: Entrada a la Comunidad Económica Europea y la OTAN</h4>
+                    <p>España firmó el acuerdo de ingreso en la Comunidad Económica Europea —
+actual Unión Europea— en 1985 pero su entrada en vigor fue el 1 de enero
+de 1986, al igual que Portugal.</p>
+                    <p>
+El referéndum sobre la permanencia de España en la OTAN se celebró el 12
+de marzo. Consiguió grandes manifestacioneslebrado el miércoles 12 de
+marzo de 1986 en España, país que pertenecía a la OTAN desde el 30 de
+mayo de 1982.1 Lo convocó el gobierno socialista presidido por Felipe
+González.</p>
+                    <p>Esta incorporación se realizó al mismo tiempo que la de Portugal y
+supuso un soplo de optimismo para la sociedad española.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="19870000" endDate="19880000">
+                    <h4>1987: Atentados de ETA</h4>
+                    <p>Dos atentados terroristas de ETA marcan este año:</p>
+                    <ul>
+                        <li>El 19 de junio en Hipercor de Barcelona en la que son asesinadas 21
+personas.</li>
+<li>El 11 de diciembre en la casa-cuartel de Zaragoza, en el que pierden
+la vida 5 niños y 6 adultos.</li>
+                </div>
+                <div class="hito infoCard shadow" startDate="19880000" endDate="19890000">
+                    <h4>1988: Huelga General 14D</h4>
+                    <p>Fue convocada por las dos principales centrales sindicales, Comisiones
+Obreras y Unión General de Trabajadores, contra la reforma laboral del
+gobierno del PSOE de Felipe González. Se abarataba el despido y se
+introdujeron los contratos temporales para jóvenes trabajadores.</p>
+                    <p>Con un seguimiento masivo de la población activa e incluso RTVE fue
+cortada por los trabajadores. El gobierno tuvo que negociar pero al año
+siguiente el PSOE revalidó su mayoría absoluta.</p>
+                  
+                </div>
+                <div class="hito infoCard shadow" startDate="19900000" endDate="19910000">
+                    <h4>1990: LOGSE</h4>
+                    <p>La Ley Orgánica General del Sistema Educativo (LOGSE), de 3 de octubre
+de 1990 fue una ley educativa española, promulgada por el gobierno del
+PSOE y sustituyó a la Ley General de Educación de 1970, vigente desde la
+dictadura de Franco.</p>
+                    <p>Ha sido derogada por la Ley Orgánica de Educación (LOE) en el año 2006.</p>
+                  
+                </div>
+                <div class="hito infoCard shadow" startDate="19920000" endDate="19930000">
+                    <h4>1992: Juegos Olímpicos, Exposición Universal y Capital Cultural</h4>
+                    <p>1992 fue un año espectacular para la marca España con tres hitos
+importantes en tres de las principales ciudades:</p>
+                    <p>
+                        1. Juegos Olímpicos de Barcelona, la XXV Olimpiada<br/>
+2. Exposición Universal de Sevilla<br/>
+3. Capital Cultural Europea de Madrid<br/>
+                    </p>
+                   
+                </div>
+                <div class="hito infoCard shadow" startDate="19940000" endDate="19950000">
+                    <h4>1994: Movimiento 0,7%</h4>
+                    <p>El movimiento por el 0,7% pretende que los países ricos aporten al menos
+el 0,7% de su PIB a los países empborecidos. En el movimiento participan
+muchas ONGs y asociaciones que recogieron medio millón de firmas
+reclamando que entregaron en el Congreso de los Diputados el 22 de
+junio.</p>
+                    <p>En septiembre se proponen acampar delante del Ministerio de Economía y
+Hacienda en el Paseo de la Castellana de Madrid. Esta movilización se
+extiende, originando acampadas de protesta en casi todo el estado.  El
+15 de Octubre se inicia una huelga de hambre.</p>
+                    
+                </div>
+                <div class="hito infoCard shadow" startDate="19970000" endDate="19980000">
+                    <h4>1997: Asesinato de Miguel Ángel Blanco</h4>
+                    <p>Miguel Ángel Blanco Garrido (1968 – 1997), fue un concejal elegido en
+Ermua (Vizcaya) por el Partido Popular que fue secuestrado y asesinado
+por ETA.</p>
+                    <p>Exigieron el mismo día del secuestro al gobierno del Partido Popular de
+José María Aznar el acercamiento de los presos con un plazo de 48 horas.
+Se convocaron manifestaciones para pedir su liberación pero 50 minutos
+antes del plazo lo dispararon en la cabeza, falleciendo en el hospital.
+</p>
+                    <p>La movilización ciudadana recibió el nombre del espíritu de Ermua.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="19980000" endDate="19990000">
+                    <h4>1998: Desastre de Aznalcóllar</h4>
+                    <p>Desastre ecológico producido por un vertido de residuos tóxicos en el
+Parque nacional y natural de Doñana (Andalucía) causado por la rotura de
+la presa de la balsa de la mina de Aznalcóllar, propiedad de la empresa
+sueca Boliden.</p>
+                    <p>La Junta de Andalucía demandó a Boliden para recuperar los 89 millones
+invertidos en la limpieza de residuos, pero a día de hoy sigue en el
+juzgado.</p>
+                   
+                </div>
+                <div class="hito infoCard shadow" startDate="20010000" endDate="20020000">
+                    <h4>2001: Guerra de Afganistán</h4>
+                    <p>Tras el 11S en EE.UU. Afganistán fue señalado por EE.UU. como base de
+operaciones de las organizaciones terroristas que estaban tras los
+atentados, apoyados por el gobierno de talibanes del Emirato Islámico de
+Afganistán.</p>
+                    <p>Para iniciar la guerra, Estados Unidos se amparó en una interpretación
+peculiar del artículo 51 de la Carta de las Naciones Unidas, relativo al
+derecho a la legítima defensa.
+</p>
+                   
+                </div>
+                <div class="hito infoCard shadow" startDate="20020000" endDate="20030000">
+                    <h4>2002: Desastre del Prestige</h4>
+                    <p>El Prestige fue un petrolero cargado con 77.000 toneladas de petróleo
+que se accidentó en una tormenta frente a la Costa da Morte (Galicia).
+Las autoridades (Ministerio de Fomento del gobierno del Partido Popular)
+decidieron llevarlo lejos de la costa en vez de intentar repararlo en
+puerto.</p>
+                    <p>Su hundimiento provocó un derrame y una marea negra afectó a 2000
+kilómetros de costa portuguesa, española y francesa del Atlántico.
+Provocó una respuesta ciudadana para limpiar el vertido y una
+movilización conocida como Nunca Mais (nunca más).</p>
+                    
+                </div>
+                <div class="hito infoCard shadow" startDate="20030000" endDate="20040000">
+                    <h4>2003: Protestas antiguerra Irak</h4>
+                    <p>Tras la guerra de Afganistán el enemigo pasó a ser Irak. Las
+movilizaciones confluyeron en una convocatoria global el 15 de febrero
+contra de la inminente invasión de Irak en 2003 por parte de EE.UU. y
+apoyada por muchos gobiernos como el español del Partido Popular, que
+participó en la famosa reunión de las Azores.</p>
+                    <p>Millones de personas desfilaron a través del mundo en 800 ciudades.
+España fue el país donde estas manifestaciones lograron mayor
+trascendencia y capilaridad, se estima la participación entre ocho y
+once millones de personas, más de un millón en Madrid y Barcelona.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="20040000" endDate="20050000">
+                    <h4>2004: Atentados 11M</h4>
+                    <p>El jueves 11 de marzo se produjo el atentado terrorista más grave de la
+historia de España y de Europa. Las explosiones en varios trenes de
+cercanías en Madrid causaron 192 víctimas mortales y miles de heridos.
+El suceso conmocionó a la sociedad española.</p>
+                    <p>Uno de los efectos fueron las movilizaciones espontáneas del 12M frente
+a las sedes del Partido Popular exigiendo que dijera la verdad sobre la
+autoría del atentado.</p>
+                    <p>El 14 de marzo José Luis Rodríguez Zapatero gana las elecciones con el
+PSOE y se convierte en presidente del Gobierno. Además, una mujer, María
+Teresa Fernández de la Vega, se convierte en la primera vicepresidenta
+del Gobierno en España; el quinto gobierno socialista será paritario.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="20050000" endDate="20060000">
+                    <h4>2005: Ley de Matrimonio homosexual</h4>
+                    <p>El 3 de julio entraba en vigor la ley que modificaba el código civil y
+permitía el matrimonio entre personas del mismo sexo y, como
+consecuencia de esto, otros derechos como la adopción conjunta, herencia
+y pensión.</p>
+                    <p>La Iglesia Católica, el Partido Popular y otras asociaciones se
+opusieron en la calle y en los tribunales.</p>
+                    <p>El Tribunal Constitucional resolvió a favor de la ley, siete años
+después, en 2012.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="20060000" endDate="20070000">
+                    <h4>2006: Ley Orgánica de Educación</h4>
+                    <p>La Ley Orgánica de Educación regula las enseñanzas educativas en España
+en diferentes tramos de edades.</p>
+                    <p>Establece en su preámbulo que tiene como objetivo adecuar la regulación
+legal de la educación no universitaria a la realidad actual en España
+(educación infantil, primaria, secundaria obligatoria, bachillerato,
+formación profesional, de idiomas, artísticas, deportivas, de adultos)
+bajo los principios de calidad de la educación para todo el alumnado, la
+equidad que garantice la igualdad de oportunidades, la transmisión y
+efectividad de valores que favorezcan la libertad, responsabilidad,
+tolerancia, igualdad, respeto y la justicia, entre otros elementos.</p>
+                    <p>Fue aprobada por todos los partidos salvo el PP y con la abstención de
+IU, BNG, ChA y NaBai</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="20070000" endDate="20080000">
+                    <h4>2007: Europride</h4>
+                    <p>Europride 2007 fue la decimosexta edición del evento creado por la
+Asociación Europea de Organizadores del Orgullo. La sede de Madrid tomó
+el relevo de Londres.</p>
+                    <p>Esperaban la presencia de dos millones de personas. Coincidió con los 10
+kilómetros de marcha de Orgullo que se realizó en la Casa de Campo. En
+la manifestación participaron 100 organizaciones y 40 carrozas.</p>
+                    
+                </div>
+                 <div class="hito infoCard shadow" startDate="20080000" endDate="20090000">
+                    <h4>2008: El comienzo de la crisis</h4>
+                </div>
+                <div class="hito infoCard shadow" startDate="20090000" endDate="20100000">
+                    <h4>2009: La recesión llega para quedarse</h4>
+                    <p>Y seguimos en ella, pese a los brotes verdes o a las señales
+inequívocas.</p>
+                    <p>eleva el número de desempleados en España a más de cuatro millones,
+situando la tasa de paro en el 17,36%, al haber aumentado el número de
+parados en 800.000, una cifra récord para un solo trimestre.</p>
                 
+                </div>
+                <div class="hito infoCard shadow" startDate="20100000" endDate="20110000">
+                    <h4>2010: Segundo Gobierno de Zapatero: aborto, presidencia UE, recortes,
+crisis bancaria</h4>
+                    <p>Se promulgó la ley de salud sexual y reproductiva y de la interrupción
+voluntaria del embarazo, ley orgánica 2/2010, que permite el aborto
+libre en las 14 primeras semanas.</p>
+                    <p>También coincide con la cuarta presidencia española de la Unión Europea
+en el primer semestre del año.</p>
+                    <p>El gobierno del PSOE comienza los recortes y salta la crisis bancaria.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="20110000" endDate="20120000">
+                    <h4>2011: 15M</h4>
+                    <p>Las protestas ciudadanas comenzaron el 15 de mayo de 2015 tras una
+convocatoria realizada por la plataforma Democracia Real Ya. Tomaron del
+día el nombre del movimiento: 15M, mientras que los mass media los
+siguen llamando Movimiento 15M e Indignados.</p>
+                    <p>Han sido movilizaciones ciudadanas, muchas veces espontáneas en origen y
+que se extendieron por toda la península hasta en 58 ciudades, y dieron
+voz a muchas de las reivindicaciones que se estaban realizando y que
+apostaban como globalidad por un cambio profundo en el modelo
+democrático y económico para avanzar y mejorar la democracia.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="20120000" endDate="20130000">
+                    <h4>2012: Desahucios, Catalunya</h4>
+                    <p>La manifestación «Catalunya, nou estat d'Europa» tuvo lugar en Barcelona
+durante la fiesta del 11S con una afluencia cercana al millón de
+personas.</p>
+                    <p>40.000 familias perdieron sus casas por impago de la hipoteca. En el 83%
+de los casos se trataba de la vivienda habitual.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="20130000" endDate="20140000">
+                    <h4>2013: LOMCE</h4>
+                    <p>La Ley Orgánica para la mejora de la calidad educativa1 —denominada
+popularmente como Ley Wert, y abreviada como LOMCE— es una ley que
+modifica la anterior LODE.</p>
+                    <p>Desde la presentación hasta su aprobación definitiva ha sido muy
+contestada y controvertida por ciertos sectores sociales y políticos.
+Fue el nacimiento de la Marea Verde en defensa de la educación pública.
+La ley no fue apoyada por ningún otro grupo parlamentario que el popular
+y muchos grupos se propusieron derogarla.</p>
+                </div>
+                <div class="hito infoCard shadow" startDate="20140000" endDate="20150000">
+                    <h4>2014: Conflicto de Gamonal</h4>
+                    <p>El barrio de Gamonal en Burgos fue escenario de protestas,
+manifestaciones y disturbios a partir del 10 de enero de 2014 que se
+apoyaron en las redes sociales y desde otras ciudades.</p>
+                    <p>Este barrio es el más extenso y populoso de la ciudad, con casi un
+tercio de la población total y con gran necesidad de inversión e
+infraestructuras.</p>
+                    <p>El ayuntamiento pretendía gastar ocho millones y medio de euros en
+construir un bulevar sobre la calle de Vitoria, principal eje del barrio
+y de Burgos. Se paralizó.</p>
+                </div>
+            </div>
+             <div class="row empty-row"></div>    
         </div>
      <!-- Bootstrap core JavaScript
     ================================================== -->

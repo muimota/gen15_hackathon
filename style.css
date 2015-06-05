@@ -168,8 +168,8 @@ a:hover{
     height:375px;
 }
 .hito{
-    padding:20px;
-    top:25px;
+    padding:15px;
+    top:15px;
     left:25px;
     width:220px;
     min-height:360px;
@@ -425,7 +425,7 @@ hr {
   color:#fff;
   background-color:#fff;
   height:2px;
-  margin:20px 0px 8px 0px;
+  margin:8px 0px 8px 0px;
 }
 /*flags*/
 #countries-flags{
